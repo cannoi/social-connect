@@ -1,53 +1,85 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SocialConnect - Mạng Xã Hội Kết Nối</title>
+  <title>SocialConnect</title>
   <link rel="stylesheet" href="style.css">
+  
 <style>.paf-made-by{position:fixed;right:8px;bottom:8px;width:min(72px,12vw);max-width:12vw;height:auto;object-fit:contain;opacity:.5;background:transparent;padding:0;border:0;box-shadow:none;filter:none;pointer-events:none;z-index:30}</style></head>
 <body>
   <div id="app">
-    <!-- Auth Screen -->
     <div id="auth-screen" class="screen">
-      <div class="auth-card">
+      <div class="auth-card glass">
+        <div class="brand-mark">◎</div>
         <h1>SocialConnect</h1>
-        <p class="subtitle">Kết nối mọi người, chia sẻ khoảnh khắc</p>
+        <p class="subtitle">A simple place to meet people</p>
         <div class="tabs">
-          <button id="tab-login-btn" class="tab active" onclick="switchTab('login')">Đăng Nhập</button>
-          <button id="tab-reg-btn" class="tab" onclick="switchTab('register')">Đăng Ký</button>
+          <button id="tab-login-btn" class="tab active" onclick="switchTab('login')">Sign in</button>
+          <button id="tab-reg-btn" class="tab" onclick="switchTab('register')">Join</button>
         </div>
         <form id="auth-form" onsubmit="handleAuth(event)">
           <div id="reg-fields" style="display:none;">
-            <input type="text" id="display_name" placeholder="Tên hiển thị">
+            <input type="text" id="display_name" placeholder="Your name">
           </div>
-          <input type="text" id="username" placeholder="Tên tài khoản" required>
-          <input type="password" id="password" placeholder="Mật khẩu" required>
-          <button type="submit" id="auth-submit-btn" class="btn primary">Đăng Nhập</button>
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit" id="auth-submit-btn" class="btn primary">Sign in</button>
           <div id="auth-error" class="error-msg"></div>
         </form>
       </div>
     </div>
 
-    <!-- Main Screen -->
-    <div id="main-screen" class="screen" style="display:none;">
-      <header class="navbar">
-        <div class="nav-brand">SocialConnect</div>
-        <div class="nav-menu">
-          <button onclick="showFeed()" class="nav-btn active">Bảng Tin</button>
-          <button onclick="showProfile()" class="nav-btn">Trang Cá Nhân</button>
-          <button onclick="logout()" class="nav-btn danger">Đăng Xuất</button>
-        </div>
-      </header>
+    <div id="main-screen" class="screen main-layout" style="display:none;">
+      <aside class="sidebar">
+        <div class="nav-brand">◎ SocialConnect</div>
+        <nav class="side-nav">
+          <button class="nav-btn active" data-page="home" onclick="go('home')">⌂ Home</button>
+          <button class="nav-btn" data-page="discover" onclick="go('discover')">⌕ Discover</button>
+          <button class="nav-btn" data-page="communities" onclick="go('communities')">◌ Communities</button>
+          <button class="nav-btn" data-page="messages" onclick="go('messages')">✉ Messages</button>
+          <button class="nav-btn" data-page="notifications" onclick="go('notifications')">◉ Alerts</button>
+          <button class="nav-btn" data-page="profile" onclick="go('profile')">☺ Profile</button>
+          <button class="nav-btn" data-page="space" onclick="go('space')">◻ My Space</button>
+        </nav>
+        <button class="btn primary create-btn" onclick="openComposer()">+ Create</button>
+        <button class="nav-btn danger" onclick="logout()">Sign out</button>
+      </aside>
 
-      <div class="container">
-        <main id="content-area">
-          <!-- Dynamic Feed or Profile -->
-        </main>
+      <div class="app-body">
+        <header class="topbar">
+          <div class="nav-brand mobile-only">◎ SocialConnect</div>
+          <div id="page-title">Home</div>
+        </header>
+        <div class="workspace">
+          <main id="content-area"></main>
+          <aside class="rightbar" id="rightbar"></aside>
+        </div>
       </div>
+
+      <nav class="mobile-nav">
+        <button class="nav-btn active" data-page="home" onclick="go('home')">⌂<span>Home</span></button>
+        <button class="nav-btn" data-page="discover" onclick="go('discover')">⌕<span>Discover</span></button>
+        <button class="nav-btn create-fab" onclick="openComposer()">+</button>
+        <button class="nav-btn" data-page="communities" onclick="go('communities')">◌<span>Groups</span></button>
+        <button class="nav-btn" data-page="profile" onclick="go('profile')">☺<span>You</span></button>
+      </nav>
     </div>
   </div>
-  
+
+  <div id="composer" class="modal" style="display:none;" onclick="if(event.target===this)closeComposer()">
+    <form class="modal-card" onsubmit="createPost(event)">
+      <h3>What's happening?</h3>
+      <textarea id="post-content" placeholder="Share a thought..."></textarea>
+      <input type="text" id="media-url" placeholder="Photo link (optional)">
+      <div class="modal-actions">
+        <button type="button" class="btn" onclick="closeComposer()">Cancel</button>
+        <button type="submit" class="btn primary">Post</button>
+      </div>
+    </form>
+  </div>
+
   <script src="app.js"></script>
+  
 <img class="paf-made-by" src="/made-by.png" alt="Made with App Builder — Pi SoloHost"></body>
 </html>
