@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialConnect - Mạng Xã Hội Kết Nối</title>
+  <link rel="stylesheet" href="style.css">
+<style>.paf-made-by{position:fixed;right:8px;bottom:8px;width:min(72px,12vw);max-width:12vw;height:auto;object-fit:contain;opacity:.5;background:transparent;padding:0;border:0;box-shadow:none;filter:none;pointer-events:none;z-index:30}</style></head>
+<body>
+  <div id="app">
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="screen">
+      <div class="auth-card">
+        <h1>SocialConnect</h1>
+        <p class="subtitle">Kết nối mọi người, chia sẻ khoảnh khắc</p>
+        <div class="tabs">
+          <button id="tab-login-btn" class="tab active" onclick="switchTab('login')">Đăng Nhập</button>
+          <button id="tab-reg-btn" class="tab" onclick="switchTab('register')">Đăng Ký</button>
+        </div>
+        <form id="auth-form" onsubmit="handleAuth(event)">
+          <div id="reg-fields" style="display:none;">
+            <input type="text" id="display_name" placeholder="Tên hiển thị">
+          </div>
+          <input type="text" id="username" placeholder="Tên tài khoản" required>
+          <input type="password" id="password" placeholder="Mật khẩu" required>
+          <button type="submit" id="auth-submit-btn" class="btn primary">Đăng Nhập</button>
+          <div id="auth-error" class="error-msg"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Screen -->
+    <div id="main-screen" class="screen" style="display:none;">
+      <header class="navbar">
+        <div class="nav-brand">SocialConnect</div>
+        <div class="nav-menu">
+          <button onclick="showFeed()" class="nav-btn active">Bảng Tin</button>
+          <button onclick="showProfile()" class="nav-btn">Trang Cá Nhân</button>
+          <button onclick="logout()" class="nav-btn danger">Đăng Xuất</button>
+        </div>
+      </header>
+
+      <div class="container">
+        <main id="content-area">
+          <!-- Dynamic Feed or Profile -->
+        </main>
+      </div>
+    </div>
+  </div>
+  
+  <script src="app.js"></script>
+<img class="paf-made-by" src="/made-by.png" alt="Made with App Builder — Pi SoloHost"></body>
+</html>

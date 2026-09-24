@@ -1,0 +1,16 @@
+{
+  "name": "social-connect",
+  "version": "1.0.0",
+  "description": "Một mạng xã hội tối giản và thân thiện",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "bcrypt": "^5.1.1",
+    "express-session": "^1.18.0"
+  }
+}

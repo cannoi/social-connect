@@ -1,0 +1,7 @@
+title: "SocialConnect"
+eyebrow: SoloHost App
+description: "tạo cho tôi một mạng xã hội kết nối mọi người"
+footer_hint: Ready to run on Pi Desktop SoloHost.
+output_file: .env
+after_save: Saved. Start the app from SoloHost.
+fields: []
