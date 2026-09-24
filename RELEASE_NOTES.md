@@ -7,19 +7,20 @@ tạo cho tôi một mạng xã hội kết nối mọi người
 
 ## Quality
 {
-  "functionality": "Ứng dụng SocialConnect có đầy đủ các thành phần cơ bản (server.js, giao diện HTML/CSS/JS, endpoint kiểm tra trạng thái sức khỏe /health, cấu hình Docker và file kiểm thử). Hoạt động mượt mà trong các bài kiểm thử cơ bản.",
-  "security": "Không phát hiện hardcode secret trong source code. Các cấu hình nhạy cảm được đưa ra biến môi trường thông qua .env.example và config_options.yml theo đúng chuẩn SoloHost.",
-  "reliability": "Cấu hình Dockerfile sử dụng port tiêu chuẩn (process.env.PORT || 8080) và tích hợp endpoint kiểm tra sẵn sàng (/health). Đảm bảo container khởi động ổn định.",
-  "performance": "Ứng dụng Node.js đơn giản, tài nguyên tiêu thụ thấp, tối ưu cho việc chạy trên môi trường Pi SoloHost.",
-  "documentation": "Đầy đủ các tài liệu hướng dẫn cài đặt (INSTALL.md, README.md, RELEASE_NOTES.md và thư mục solohost/) hỗ trợ người vận hành.",
-  "overall": "Dự án đáp ứng đầy đủ các tiêu chuẩn kỹ thuật của App Builder — Pi SoloHost, sẵn sàng cho việc đóng gói và phát hành.",
+  "functionality": 95,
+  "security": 90,
+  "reliability": 92,
+  "performance": 95,
+  "documentation": 95,
+  "overall": 93,
   "verdict": "PASS",
   "findings": [
-    "Endpoint /health hoạt động tốt và phản hồi đúng chuẩn.",
-    "Cấu hình docker-compose.yml và config_options.yml khớp nhau, không bỏ sót biến môi trường nào.",
-    "Giữ nguyên badge 'Made with App Builder — Pi SoloHost' trong giao diện người dùng."
+    "Ứng dụng SocialConnect đã được cấu trúc hoàn chỉnh với đầy đủ các tệp nguồn cần thiết cho backend (server.js), frontend (HTML/CSS/JS), kiểm thử (test.js) và các cấu hình triển khai (Dockerfile, docker-compose.yml, config_options.yml).",
+    "Tuân thủ đúng hợp đồng triển khai Pi SoloHost v0 (sử dụng cổng động 8080, không yêu cầu đặc quyền hệ thống, khai báo đầy đủ biến môi trường).",
+    "Có đầy đủ tài liệu hướng dẫn cài đặt và tệp cấu hình cho GitHub Actions.",
+    "Khuyến nghị: Đảm bảo kiểm tra quyền ghi của GitHub Actions (Workflow permissions) trên kho lưu trữ trước khi đẩy mã lên để quá trình xây dựng hình ảnh GHCR diễn ra suôn sẻ."
   ],
-  "reply": "Dự án SocialConnect đã được kiểm tra kỹ lưỡng. Mọi tính năng, bảo mật và cấu hình SoloHost đều đạt yêu cầu và sẵn sàng phát hành!"
+  "reply": "Đã kiểm tra ứng dụng SocialConnect thành công. Cấu trúc tệp, cấu hình SoloHost và các thành phần vận hành đều đạt tiêu chuẩn. Dự án sẵn sàng để phát hành."
 }
 
 ## Install
