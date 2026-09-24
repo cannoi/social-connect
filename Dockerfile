@@ -1,8 +1,8 @@
 FROM node:18-alpine
 WORKDIR /app
-RUN apk add --no-cache python3 make g++ build-base
+RUN apk add --no-cache python3 make g++ build-base sqlite-dev
 COPY package*.json ./
-RUN npm install --build-from-source=sqlite3
+RUN npm install --omit=dev --build-from-source=sqlite3
 COPY . .
 EXPOSE 8080
 ENV PORT=8080
